@@ -37,13 +37,13 @@ class HourlyPage(BoxLayout):
         self.orientation = 'vertical'
 
         # // Layout that contains widget to go to weekly maps
-        self.other_pages_layout = BoxLayout(orientation='horizontal', size_hint=(1, 0.45))
+        self.weekly_button_layout = BoxLayout(orientation='horizontal', size_hint=(1, 0.45))
 
-        self.other_pages_layout.add_widget(Label(text='', size_hint=(1.4, 1)))
-        self.other_pages_layout.add_widget(self.weekly_button)
-        self.other_pages_layout.add_widget(Label(text='', size_hint=(1.5, 1)))
+        self.weekly_button_layout.add_widget(Label(text='', size_hint=(.4, 1)))
+        self.weekly_button_layout.add_widget(self.weekly_button)
+        self.weekly_button_layout.add_widget(Label(text='', size_hint=(.4, 1)))
 
-        self.add_widget(self.other_pages_layout)
+        self.add_widget(self.weekly_button_layout)
 
         # // layout containing pollenmap, see Pollenmap class for more information
         self.add_widget(self.polmap)
