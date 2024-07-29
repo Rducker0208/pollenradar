@@ -14,7 +14,7 @@ class Weekly_Screen(Screen):
         super(Weekly_Screen, self).__init__(**kwargs)
 
         # // button used to switch to hourly maps
-        hourly_button = Button(text='hourly')
+        hourly_button = Button(background_normal=r'./images/today.png')
         hourly_button.bind(on_press=self.hourly_button_callback)
 
         self.add_widget(WeeklyPage(hourly_button))
@@ -38,7 +38,7 @@ class WeeklyPage(BoxLayout):
         self.orientation = 'vertical'
 
         # // Layout that contains widget to go to hourly maps
-        self.other_pages_layout = BoxLayout(orientation='horizontal', size_hint=(1, 0.0725))
+        self.other_pages_layout = BoxLayout(orientation='horizontal', size_hint=(1, 0.11))
 
         self.other_pages_layout.add_widget(Label(text='', size_hint=(1.5, 1)))
         self.other_pages_layout.add_widget(self.hourly_button)
@@ -49,7 +49,7 @@ class WeeklyPage(BoxLayout):
         # // layout containing maps of the 4 next days
         self.maps_layout = GridLayout(rows=2, cols=2)
 
-        self.maps_layout.add_widget(Image(source=r'./pollen_maps_weekly/pollenmap_weekly_0.png'))
+        self.maps_layout.add_widget(Image(source=r'./pollen_maps_weekly/pollenmap_weekly_1.png'))
         self.maps_layout.add_widget(Image(source=r'./pollen_maps_weekly/pollenmap_weekly_2.png'))
         self.maps_layout.add_widget(Image(source=r'./pollen_maps_weekly/pollenmap_weekly_3.png'))
         self.maps_layout.add_widget(Image(source=r'./pollen_maps_weekly/pollenmap_weekly_4.png'))

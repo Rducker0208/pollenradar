@@ -12,7 +12,7 @@ class Hourly_Screen(Screen):
         super(Hourly_Screen, self).__init__(**kwargs)
 
         # // button used to switch to weekly maps
-        weekly_button = Button(text='weekly')
+        weekly_button = Button(background_normal=r'./images/this_week.png')
         weekly_button.bind(on_press=self.weekly_button_callback)
 
         self.add_widget(HourlyPage(weekly_button))
@@ -29,17 +29,17 @@ class HourlyPage(BoxLayout):
 
     def __init__(self, weekly_button, **kwargs) -> None:
         super(HourlyPage, self).__init__(**kwargs)
-
         self.weekly_button = weekly_button
+
         self.polmap = Pollenmap()
 
         # // set orientation that the layout should go in
         self.orientation = 'vertical'
 
         # // Layout that contains widget to go to weekly maps
-        self.other_pages_layout = BoxLayout(orientation='horizontal', size_hint=(1, 0.3))
+        self.other_pages_layout = BoxLayout(orientation='horizontal', size_hint=(1, 0.45))
 
-        self.other_pages_layout.add_widget(Label(text='', size_hint=(1.5, 1)))
+        self.other_pages_layout.add_widget(Label(text='', size_hint=(1.4, 1)))
         self.other_pages_layout.add_widget(self.weekly_button)
         self.other_pages_layout.add_widget(Label(text='', size_hint=(1.5, 1)))
 

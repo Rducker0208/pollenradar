@@ -23,7 +23,7 @@ class Pollenapp(App):
 
         self.sm.add_widget(Hourly_Screen(name='hourly'))
         self.sm.add_widget(Weekly_Screen(name='weekly'))
-        self.sm.current = 'hourly'
+        self.sm.current = 'weekly'
 
         return self.sm
 
