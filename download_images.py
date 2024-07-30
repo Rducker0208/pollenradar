@@ -19,23 +19,19 @@ from split_image import split_image
 def check_last_login() -> None:
     """Check time since the last user login to check if new maps need to be downloaded"""
 
-    # current_time = str(datetime.datetime.now().time())[:5]
-    current_time = str(datetime.datetime.now())
-    date, time = current_time.split()
+    current_time = str(datetime.datetime.now().time())[:5]
 
     # // get last user login from text file
     with open('last_login.txt') as x:
-        last_login_time, last_login_date = x.read().split('_')
+        last_login_time = x.read()[:5]
 
     # // set current time as latest login
     with open('last_login.txt', 'w') as x:
-        x.write(f'{time}_{date}')
+        x.write(current_time)
 
     # // download new maps if needed
-    if last_login_time[0:2] != time[0:2]:
+    if last_login_time[0:2] != current_time[0:2]:
         get_hourly_maps()
-
-    if date != last_login_date:
         get_daily_maps()
 
 
